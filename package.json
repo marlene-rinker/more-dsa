@@ -1,0 +1,24 @@
+{
+  "name": "more-dsa",
+  "version": "1.0.0",
+  "description": "Code practice from Interview Cake and LeetCode",
+  "main": "index.js",
+  "dependencies": {
+    "jest": "^26.4.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "jest --coverage --verbose"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marlene-rinker/more-dsa.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/marlene-rinker/more-dsa/issues"
+  },
+  "homepage": "https://github.com/marlene-rinker/more-dsa#readme"
+}
