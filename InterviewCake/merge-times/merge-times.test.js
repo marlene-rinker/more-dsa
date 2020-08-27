@@ -1,6 +1,6 @@
 'use strict';
 
-const mergeRanges = require('./question1.js');
+const mergeRanges = require('./merge-times.js');
 
 describe('Testing merge ranges', () => {
   it ('should return the array with the merged values as expected', () => {
