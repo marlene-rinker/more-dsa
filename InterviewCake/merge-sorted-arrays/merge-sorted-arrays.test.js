@@ -1,6 +1,6 @@
 'use strict';
 
-const mergeArrays = require('./merge-sorted-arrays.js');
+const test = require('./merge-sorted-arrays.js');
 
 describe('Testing merge sorted arrays', () => {
   it ('should return an array with the merged values as expected', () => {
@@ -9,11 +9,18 @@ describe('Testing merge sorted arrays', () => {
     const a3 = [2,15];
     const a4 = [4];
     
-    expect(mergeArrays(a1, a2)).toEqual([
+    expect(test.mergeArrays(a1, a2)).toEqual([
       1,  3,  4,  5,  6,
       8, 10, 11, 12, 14,
      15, 19
    ]);
-    expect(mergeArrays(a3, a4)).toEqual([ 2, 4, 15 ]);
+    expect(test.mergeArrays(a3, a4)).toEqual([ 2, 4, 15 ]);
+
+    expect(test.mergeSortedArrays(a1, a2)).toEqual([
+      1,  3,  4,  5,  6,
+      8, 10, 11, 12, 14,
+     15, 19
+   ]);
+    expect(test.mergeSortedArrays(a3, a4)).toEqual([ 2, 4, 15 ]);
   })
 });  
