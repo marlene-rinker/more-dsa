@@ -36,16 +36,4 @@ function wordCloud(str) {
   return wordsMap;
 }
 
-let string1 = 'After beating the eggs, Dana read the next step: Add milk and eggs, then add flour and sugar.'
-
-let string2 = 'Let\'s go to the party party!';
-let string3 = 'The sky was blue-grey.';
-let string4 = 'happy-happy, joy-joy';
-
-console.log(wordCloud(string1));
-console.log(wordCloud(string2));
-console.log(wordCloud(string3));
-console.log(wordCloud(string4));
-
-
 module.exports = wordCloud;
