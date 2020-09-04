@@ -24,6 +24,3 @@ return scores;
 
 module.exports = topScores;
 
-// let arr = [37, 89, 41, 65, 91, 53];
-// let arr2 = [37, 89, 41, 65, 65, 91, 100, 100, 53, 0];
-// console.log(topScores(arr2, 100));
