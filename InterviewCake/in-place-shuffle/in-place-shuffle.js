@@ -8,13 +8,29 @@ function shuffleArray(arr) {
   for(let i = 0; i < arr.length; i++) {
     let idx = getRandom(0, max);
     while (Object.values(used).includes(idx)) {
-      console.log('in the while: ', idx);
       idx = getRandom(0, max);
     }
     used[idx] = idx;
     let temp = arr.splice(idx, 1);
     arr.unshift(temp[0]);
-    console.log(used);
+    
+  }
+  return arr;
+}
+
+function betterShuffle(arr) {
+  if(arr.length <= 1) return arr;
+
+  let max = arr.length - 1;
+
+  for (let i = 0; i < arr.length; i++) {
+    let idx = getRandom(i, max);
+
+    if(idx !== i) {
+      let temp = arr[i];
+      arr[i] = arr[idx];
+      arr[idx] = temp;
+    }
   }
   return arr;
 }
@@ -23,5 +39,8 @@ function getRandom(floor, ceiling) {
   return Math.floor(Math.random() * (ceiling - floor + 1)) + floor;
 }
 
-// console.log(getRandom(0,3));
-console.log(shuffleArray([1,2,3,4]));
+module.exports = {
+  betterShuffle,
+  shuffleArray,
+}
+
