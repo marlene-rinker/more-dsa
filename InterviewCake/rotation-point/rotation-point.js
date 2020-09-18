@@ -1,11 +1,7 @@
 'use strict';
 
 function findRotationPoint(arr) {
-  let result = -1;
-
-  //rotation point is where arr[idx] < arr[idx - 1]
-
-  //is arr[0] > arr[idx], if so, then rotation point is between arr[0] and arr[idx]; if not, then rotation point is between arr[idx] and arr.length - 1;
+  let result = 0;
 
   let start = -1;
   let end = arr.length;
@@ -14,6 +10,7 @@ function findRotationPoint(arr) {
     let range = end - start;
     let middle = Math.floor(range/2);
     let idx = start + middle;
+    
 
     if(arr[idx] < arr[idx - 1]) {
       return idx;
@@ -23,13 +20,13 @@ function findRotationPoint(arr) {
       end = idx;
       continue;
     }
-    start = idx;
+    start = idx;   
     
-
   };
-
 
   return result;
 };
 
 module.exports = findRotationPoint;
+
+
