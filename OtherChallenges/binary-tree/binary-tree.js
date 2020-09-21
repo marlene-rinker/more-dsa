@@ -5,7 +5,6 @@ function Node(value, left, right) {
   this.left = left;
   this.right = right;
 }
-//needs more work - blows up.
 function traverseBinaryTree(root) {
   let stack = [];
   let result = [];
