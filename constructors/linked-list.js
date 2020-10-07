@@ -7,6 +7,14 @@ class Node {
   }
 }
 
+class DoubleNode {
+  constructor(value) {
+    this.value = value;
+    this.next = null;
+    this.prev = null;
+  }
+}
+
 class LinkedList {
   constructor() {
     this.head = null;
@@ -15,5 +23,6 @@ class LinkedList {
 
 module.exports = {
   Node,
+  DoubleNode,
   LinkedList,
 }
