@@ -2,7 +2,7 @@
 
 let tool = require('../../constructors/linked-list.js');
 
-function doubleListIsPalindrome(list) {
+function doublyLLIsPalindrome(list) {
 
   if (!list.head) {return false};
   let counter = 1;
@@ -39,5 +39,64 @@ function doubleListIsPalindrome(list) {
 
 }
 
-module.exports = doubleListIsPalindrome;
+function singlyLLIsPalindrome(list) {
+
+  if (!list.head) {return false};
+  let count = 0;
+  let counter = list.head;
+  let current = list.head;
+  let values = [];
+
+  
+  while(counter) {
+    count = count + 1;
+    counter = counter.next;
+  }
+  
+  let middle = Math.round(count/2);
+  
+  
+
+  let position = 1;
+  
+
+  while(position <= middle) {
+    if(typeof current.value === 'string') {
+      current.value = current.value.toLowerCase();
+    }
+    values.push(current.value);
+    current = current.next;
+    position = position + 1;
+  }
+  
+  let comp = middle - 1;
+  if(count % 2 === 1) {
+    comp = comp - 1;
+  }
+  
+  while(current) {
+    if(typeof current.value === 'string') {
+      current.value = current.value.toLowerCase();
+    }
+    if(current) {
+      console.log('comp is: ', comp);
+      console.log('current value is: ', current.value, 'and values[comp] is: ', values[comp]);
+      if(current.value !== values[comp]) {return false};
+      current = current.next;
+      comp = comp - 1;
+    }
+  }
+  return true;
+
+}
+
+module.exports = {
+  doublyLLIsPalindrome,
+  singlyLLIsPalindrome,
+}
+
+
+
+
+
 
