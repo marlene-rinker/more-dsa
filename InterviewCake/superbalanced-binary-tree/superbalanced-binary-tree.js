@@ -1,39 +1,44 @@
 'use strict';
 
+let Node = require('../../constructors/binary-tree-node.js');
+
 function isSuperbalanced(root) {
-//use depth-first traversal to find the leaves (nodes with no children);
-//count to get depth to leaf
-//when get to first leaf, save depth, then compare to depth of next leaf, if more than 1, return false, if not, keep going keeping minimum depth as the depth to compare for next leaf
 
 if(!root) {
-  return false;
+  return true;
 }
 
 let stack = [];
-stack.push(root);
-
+stack.push([root, 0]);
+let depths = [];
 
 while(stack.length > 0) {
-  let node = stack.pop();
-
-  if(node.left) {
-    stack.push(node.left);
-  }
-
-  if(node.right) {
-    stack.push(node.right);
-  }
+  let nodeDetails = stack.pop();
+  let node = nodeDetails[0];
+  let depth = nodeDetails[1];
 
   if(!node.right && !node.left) {
-    if ((depth - count) > 1) {
+    if (depths.indexOf(depth) < 0) {
+      depths.push(depth);
+    }
+    //tree is not superbalanced if there are more than 2 different depths or if the difference between the depths of two leaves is more than 1
+    if ((depths.length > 2) || (Math.abs(depths[0] - depths[1]) > 1)) {
       return false;
     }
   }
 
+  if(node.left) {
+    stack.push([node.left, depth + 1]);
+  }
+
+  if(node.right) {
+    stack.push([node.right, depth + 1]);
+  }
+
 }
 
-
-
-
+return true;
 
 }
+
+module.exports = isSuperbalanced;
