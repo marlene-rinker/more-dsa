@@ -7,29 +7,34 @@ function isValidBST(root) {
 
   if(!root.left && !root.right) {return false};
 
-  let current = root;
-  let queue = [];
-  queue.push(current);
+  let stack = [];
+  stack.push({
+    node: root,
+    low: -100000000000000000000,
+    high: 100000000000000000000,
+  });
 
 
-  while(queue.length) {
-    let max = current.value;
-    console.log('this is max: ', max);
-    current = queue.shift();
-    if(current.left) {
-      if (current.left.value >= current.value) {
-        return false;
-      }
-      queue.push(current.left);
+  while(stack.length) {
+    let current = stack.pop();
+    if (current.node.value <= current.low || current.node.value >= current.high) {
+      return false;
+    }
+    if(current.node.left) {
+      stack.push({
+        node: current.node.left,
+        low: current.low,
+        high: current.node.value,
+      });
     }
 
-    if(current.right) {
-      if ((current.right.value <= current.value) || (current.right.value >= max)) {
-        return false;
-      }
-      queue.push(current.right);
+    if(current.node.right) {
+      stack.push({
+        node: current.node.right,
+        low: current.node.value,
+        high: current.high,
+      });
     }
-
 
   }
 
@@ -39,20 +44,3 @@ function isValidBST(root) {
 
 module.exports = isValidBST;
 
-
-let root = new Node(20);
-let nodeB = new Node(10);
-let nodeC = new Node(30);
-let nodeD = new Node(5);
-let nodeE = new Node(15);
-let nodeF = new Node(25);
-let nodeG = new Node(35);
-
-root.left = nodeB;
-root.right = nodeC;
-nodeB.left = nodeD;
-nodeB.right = nodeE;
-nodeC.left = nodeF;
-nodeC.right = nodeG;
-
-console.log(isValidBST(root));
