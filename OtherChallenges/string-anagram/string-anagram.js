@@ -56,8 +56,6 @@ function anotherAreAnagrams(str1, str2) {
   }
   let firstMap = characterMap(str1);
   let secondMap = characterMap(str2);
-  // console.log('firstMap: ', firstMap);
-  // console.log('secondMap: ', secondMap);
 
   for (let char in firstMap) {
     if (firstMap[char] !== secondMap[char]) {
@@ -67,8 +65,6 @@ function anotherAreAnagrams(str1, str2) {
 
   return true;
 
-
-
 }
 
 module.exports = {
@@ -76,4 +72,3 @@ module.exports = {
   anotherAreAnagrams,
 }
 
-console.log(anotherAreAnagrams('post', 'tops'));
