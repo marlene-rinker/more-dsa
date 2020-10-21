@@ -1,0 +1,1 @@
+Determine if a linked list has a circular reference. There are different ways to do this. For this exercise, do this using a runner and walker.
