@@ -35,19 +35,3 @@ function colorGraph(graph, colors) {
 };
 
 module.exports = colorGraph;
-
-let a = new GraphNode('a');
-let b = new GraphNode('b');
-let c = new GraphNode('c');
-
-a.neighbors.add(b);
-b.neighbors.add(a);
-c.neighbors.add(b);
-b.neighbors.add(c);
-c.neighbors.add(a);
-c.neighbors.add(c);
-
-let graph = [a, b, c];
-let colors = ['red', 'green', 'blue', 'purple'];
-
-console.log(colorGraph(graph, colors));
