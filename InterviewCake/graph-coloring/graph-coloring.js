@@ -6,11 +6,8 @@ let GraphNode = require('../../constructors/graph-node.js');
 
 function colorGraph(graph, colors) {
 
-  graph.forEach(node => {
-
+  for(let node of graph) {
     let neighbors = node.neighbors;
-    console.log(neighbors);
-    console.log(node);
 
     //if a node is in a loop, it can't have legal coloring
     if(neighbors.has(node)) {
@@ -24,24 +21,18 @@ function colorGraph(graph, colors) {
         neighborColors.add(neighbor.color)
       }
     })
-
-    for (let i = 0; i < colors.length; i++) {
-      let color = colors[i];
-
+   
+    for (let color of colors) {
       if(!neighborColors.has(color)) {
         node.color = color;
         break;
-      }
-      
+      }     
     }
-  
-
-  });
+  };
 
   return 'Graph has legal coloring.'
 
-
-}
+};
 
 module.exports = colorGraph;
 
@@ -53,7 +44,8 @@ a.neighbors.add(b);
 b.neighbors.add(a);
 c.neighbors.add(b);
 b.neighbors.add(c);
-b.neighbors.add(b);
+c.neighbors.add(a);
+c.neighbors.add(c);
 
 let graph = [a, b, c];
 let colors = ['red', 'green', 'blue', 'purple'];
