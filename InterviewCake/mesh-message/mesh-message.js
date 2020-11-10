@@ -4,31 +4,39 @@
 
 //it returns an array of usernames to represent the route from sender to recipient
 
+
+
 function meshMessage(sender, recipient, network) {
   let route = [];
-  let visited = new Set();
+  let visited = {};
   let queue = [];
-  // route.push(sender);
+  
+  if (!network[sender] || !network[recipient]) {
+    return route;
+  }
+  
   queue.push(sender);
-  visited.add(sender);
+  visited[sender] = null;
 
-  while(queue.length > 0) {
+  while(queue.length) {
     let node = queue.shift();
-    route.push(node);
+    
     if (node === recipient) {
+      let currentNode = node;
+      while(currentNode !== null) {
+        route.push(currentNode);
+        currentNode = visited[currentNode];
+      }
+      route = route.reverse();
       return route;
     }
 
     for (let neighbor of network[node]) {
-      if (neighbor === recipient) {
-        route.push(neighbor);
-        return route;
-      }
-      if(!visited.has(neighbor)) {
-        // route.push(neighbor);
+      if (!visited.hasOwnProperty(neighbor)) {
         queue.push(neighbor);
-        visited.add(neighbor);
+        visited[neighbor] = node;
       }
+      
     }
   }
   return route;
@@ -48,4 +56,6 @@ let network = {
 }
 
 console.log(meshMessage('James', 'Nora', network));
+console.log(meshMessage('Dave', 'Marlene', network));
+console.log(meshMessage('Marlene', 'Maisie', network));
   
