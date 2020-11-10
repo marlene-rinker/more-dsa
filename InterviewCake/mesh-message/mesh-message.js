@@ -45,17 +45,4 @@ function meshMessage(sender, recipient, network) {
 
 module.exports = meshMessage;
 
-let network = {
-  'Marlene': ['Dave', 'Paul', 'Gloria'],
-  'Dave': ['Marlene', 'James', 'Gloria'],
-  'Paul': ['Marlene', 'Nora', 'Maisie'],
-  'Gloria': ['Marlene', 'Dave', 'Maisie'],
-  'Maisie': ['Paul', 'Gloria'],
-  'Nora': ['Paul'],
-  'James': ['Dave'],
-}
-
-console.log(meshMessage('James', 'Nora', network));
-console.log(meshMessage('Dave', 'Marlene', network));
-console.log(meshMessage('Marlene', 'Maisie', network));
   
