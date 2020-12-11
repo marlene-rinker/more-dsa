@@ -12,7 +12,7 @@ function sumInteger(int) {
 
   if (result > 9) {
     result = sumInteger(result);
-    // return sumInteger(result);
+    // return sumInteger(result); (another option)
   }
 
   return result;
