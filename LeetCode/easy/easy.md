@@ -1,5 +1,182 @@
 ## Easy Questions from LeetCode
 
+### Delete Node in a Linked List
+
+Write a function to delete a node in a singly-linked list. You will not be given access to the head of the list, instead you will be given access to the node to be deleted directly.
+
+It is guaranteed that the node to be deleted is not a tail node in the list.
+
+Example 1:
+
+![example](../../images/delete_node_ex1.png)
+
+```
+Input: head = [4,5,1,9], node = 5
+Output: [4,1,9]
+Explanation: You are given the second node with value 5, the linked list should become 4 -> 1 -> 9 after calling your function.
+```
+
+Example 2: 
+![example](../../images/delete_node_ex2.png)
+
+```
+Input: head = [4,5,1,9], node = 1
+Output: [4,5,9]
+Explanation: You are given the third node with value 1, the linked list should become 4 -> 5 -> 9 after calling your function.
+```
+
+Example 3:
+```
+Input: head = [1,2,3,4], node = 3
+Output: [1,2,4]
+```
+
+Example 4:
+```
+Input: head = [0,1], node = 0
+Output: [1]
+```
+
+Example 5:
+```
+Input: head = [-3,5,-99], node = -3
+Output: [5,-99]
+```
+
+Constraints:
+
+- The number of the nodes in the given list is in the range [2, 1000].
+
+- -1000 <= Node.val <= 1000
+
+- The value of each node in the list is unique.
+
+- The node to be deleted is in the list and is not a tail node
+
+- Do not return any results from your function
+
+### House Robber
+
+You are a professional robber planning to rob houses along a street. Each house has a certain amount of money stashed, the only constraint stopping you from robbing each of them is that adjacent houses have security system connected and it will automatically contact the police if two adjacent houses were broken into on the same night.
+
+Given a list of non-negative integers representing the amount of money of each house, determine the maximum amount of money you can rob tonight without alerting the police.
+
+**Example 1:**
+
+```
+Input: nums = [1,2,3,1]
+
+Output: 4
+
+Explanation: Rob house 1 (money = 1) and then rob house 3 (money = 3).
+
+Total amount you can rob = 1 + 3 = 4.
+```
+
+**Example 2:**
+```
+Input: nums = [2,7,9,3,1]
+
+Output: 12
+
+Explanation: Rob house 1 (money = 2), rob house 3 (money = 9) and rob house 5 (money = 1).
+
+Total amount you can rob = 2 + 9 + 1 = 12.
+ ```
+
+**Constraints:**
+```
+0 <= nums.length <= 100
+
+0 <= nums[i] <= 400
+```
+
+### Count and Say
+
+The count-and-say sequence is a sequence of digit strings defined by the recursive formula:
+
+countAndSay(1) = "1"
+
+countAndSay(n) is the way you would "say" the digit string from countAndSay(n-1), which is then converted into a different digit string.
+
+To determine how you "say" a digit string, split it into the minimal number of groups so that each group is a contiguous section all of the same character. Then for each group, say the number of characters, then say the character. To convert the saying into a digit string, replace the counts with a number and concatenate every saying.
+
+For example, the saying and conversion for digit string "3322251":
+
+"3322251"
+
+two 3's, three 2's, one 5, and one 1
+
+2 3 + 3 2 + 1 5 + 1 1
+
+"23341511"
+
+
+Given a positive integer n, return the nth term of the count-and-say sequence.
+
+ 
+
+**Example 1:**
+
+Input: n = 1
+
+Output: "1"
+
+Explanation: This is the base case.
+
+**Example 2:**
+
+Input: n = 4
+
+Output: "1211"
+
+Explanation:
+
+countAndSay(1) = "1"
+
+countAndSay(2) = say "1" = one 1 = "11"
+
+countAndSay(3) = say "11" = two 1's = "21"
+
+countAndSay(4) = say "21" = one 2 + one 1 = "12" + "11" = "1211"
+
+
+Constraints:
+
+1 <= n <= 30
+
+### Longest Common Prefix
+
+Write a function to find the longest common prefix string amongst an array of strings.
+
+If there is no common prefix, return an empty string "".
+
+ 
+
+**Example 1:**
+
+  **Input:** strs = ["flower","flow","flight"]
+
+  **Output:** "fl"
+
+**Example 2:**
+
+  **Input:** strs = ["dog","racecar","car"]
+
+  **Output:** ""
+
+  Explanation: There is no common prefix among the input strings.
+ 
+
+**Constraints:**
+
+  0 <= strs.length <= 200
+
+  0 <= strs[i].length <= 200
+
+  strs[i] consists of only lower-case English letters.
+
+
 ### Two Sum
 
 Given an array of integers, return indices of the two numbers such that they add up to a specific target.
