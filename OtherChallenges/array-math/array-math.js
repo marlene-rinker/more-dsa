@@ -30,9 +30,3 @@ return results;
 
 
 module.exports = arrayMath;
-
-console.log(arrayMath([4, 7, 9, 10]));
-console.log(arrayMath([-4, -7, -9, -10]));
-console.log(arrayMath([-9, 6, 200, 0, 75, 6]));
-console.log(arrayMath([3]));
-console.log(arrayMath([1, 2]));
